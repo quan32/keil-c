@@ -1,0 +1,19 @@
+<html>
+<body>
+<pre>
+<h1>µVision3 Build Log</h1>
+<h2>Project:</h2>
+C:\Embedded\Keil-C\Digital Clock\digital_clock.uv2
+Project File Date:  01/10/2016
+
+<h2>Output:</h2>
+Build target 'Target 1'
+compiling main.c...
+linking...
+Program Size: data=30.6 xdata=0 code=634
+"digital_clock" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+linking...
+Program Size: data=30.6 xdata=0 code=634
+creating hex file from "digital_clock"...
+"digital_clock" - 0 Error(s), 0 Warning(s).

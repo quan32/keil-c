@@ -1,0 +1,99 @@
+C51 COMPILER V8.05a   MAIN                                                                 01/10/2016 18:14:34 PAGE 1   
+
+
+C51 COMPILER V8.05a, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN main.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE main.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include <reg51.h>
+   2          
+   3          #define BASE            0xFC18
+   4          #define BASE_HIGHT  0XFC
+   5          #define BASE_LOW        0x18
+   6          #define SECOND      0
+   7          
+   8          
+   9          //variables
+  10          unsigned char SEGMENTS[]        = {0xC0, 0xF9, 0xA4, 0xB0, 0x99, 0x92, 0x82, 0xF8, 0x80, 0x90};
+  11          unsigned char date_time[]       = {0};
+  12          unsigned int  count;
+  13          bit flag_0;
+  14          bit flag_1;
+  15          
+  16          void init();
+  17          void setTimer();
+  18          void update_led();
+  19          
+  20          void timer0(void) interrupt 2 {
+  21   1      
+  22   1          setTimer();
+  23   1              
+  24   1          ++count;
+  25   1          if (count == 1000) {
+  26   2              ++date_time[SECOND];
+  27   2              count = 0;
+  28   2          }
+  29   1          
+  30   1          update_led();    
+  31   1      }
+  32          
+  33          void main(void) {
+  34   1      
+  35   1          IE   = 0x82;
+  36   1          TMOD = 0x01;
+  37   1          setTimer();
+  38   1          init();
+  39   1          TR0  = 1;
+  40   1          
+  41   1          while(1);
+  42   1      }
+  43          
+  44          void init() {
+  45   1          P2     = 0x02;
+  46   1          P0     = SEGMENTS[0];
+  47   1          P2     = 0x01;
+  48   1          P0     = SEGMENTS[0];
+  49   1          
+  50   1          flag_0 = 1;
+  51   1          flag_1 = 0;
+  52   1      }
+  53          
+  54          void setTimer() {
+  55   1          TH0  = 0xFC;
+C51 COMPILER V8.05a   MAIN                                                                 01/10/2016 18:14:34 PAGE 2   
+
+  56   1          TL0  = 0x18;
+  57   1      }
+  58          
+  59          void update_led() {
+  60   1          if (flag_0 == 1) {
+  61   2              P2 = 0x02;
+  62   2              flag_0 =0;
+  63   2              flag_1 = 1;
+  64   2              
+  65   2              P0 = SEGMENTS[date_time[SECOND]%10];
+  66   2          } else if (flag_1 == 1) {
+  67   2              P2 = 0x01;
+  68   2              flag_1 = 0;
+  69   2              flag_0 = 1;
+  70   2              
+  71   2              P0 = SEGMENTS[date_time[SECOND]/10];
+  72   2          }
+  73   1      }
+  74          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    171    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     13    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =      2    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

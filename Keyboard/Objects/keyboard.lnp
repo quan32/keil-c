@@ -1,0 +1,4 @@
+".\Objects\main.obj",
+".\Objects\delay.obj" 
+TO ".\Objects\keyboard" 
+PRINT(".\Listings\keyboard.m51")

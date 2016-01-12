@@ -1,0 +1,77 @@
+### Document
+ http://www.edsim51.com/8051Notes/8051/timers.html
+ 
+### Timer Mode Register
+Register  : TMOD
+Detail    :
+Bit	Name	Timer	Description
+7	Gate	1	Gate bit; when set, timer only runs while INT-bar is high. This bit is used in conjunction with interrupts and will be dealt with later.
+6	C/T-bar	1	Counter/timer select bit; when set timer is an event counter, when cleared timer is an interval timer.
+5	M1		1	Mode bit 1
+4	M0		1	Mode bit 0
+3	Gate	0	Gate bit; when set, timer only runs while INT-bar is high.
+2	C/T-bar	0	Counter/timer select bit; when set timer is an event counter, when cleared timer is an interval timer.
+1	M1		0	Mode bit 1
+0	M0		0	Mode bit 0
+
+## Mode
+M1	M0	Mode	Description
+0	0	0	13-bit timer mode (this mode exists simply to keep the 8051 backwards compatible with its predecessor, the 8048, which had a 13-bit timer) - we will not be using mode 0.
+0	1	1	16-bit timer mode
+1	0	2	8-bit auto-reload mode
+1	1	3	Split timer mode - this mode will be dealt with at a later stage
+Mode 1 - 16-bit mode
+The high byte (THx) is cascaded with the low byte (TLx) to produce a 16-bit timer. This timer counts from 0000H to FFFFH - it has 216 (65,536) states. An overflow occurs during the FFFFH to 0000H transition, setting the overflow flag (to be dealt with shortly).
+ 	 
+Mode 2- 8-bit auto-reload mode
+The timer low byte (TLx) operates as an 8-bit timer (counting to FFH) while the high byte holds a reload value. When the timer overflows from FFH, rather than starting again from 00H, the value in THx is loaded into TLx and the count continues from there.
+
+### Timer Control Register (TCON)
+Bit	Symbol	Bit Address	Description
+7	TF1		8FH		Timer 1 overflow flag; set by hardware upon overflow, cleared by software.
+6	TR1		8EH		Timer 1 run-control bit; manipulated by software - setting starts timer 1, resetting stops timer 1.
+5	TF0		8DH		Timer 0 overflow flag; set by hardware upon overflow, cleared by software.
+4	TR0		8CH		Timer 0 run-control bit; manipulated by software - setting starts timer 0, resetting stops timer 0.
+[below: for external interrupts]
+3	IE1		8BH		The bottom four bits of TCON are used in conjunction with interrupts - they will be dealt with at a later stage.
+2	IT1		8AH
+1	IE0		89H
+0	IT0		88H
+
+### Examples
+Ex1		: timer0 as event counter, timer1 as interval timer
+Solve	:
+		bit		value	note
+Timer1	7	0	gate (set when using interrupts, reset otherwise)
+		6	0	C/T-bar (0 because timer 1 is to be an interval timer)
+		5	0	mode bits (01 for mode 1 - 16-bit)
+		4	1
+Timer0	3	0	gate (set when using interrupts, reset otherwise)
+		2	1	C/T-bar (1 because timer 0 is to be an event counter)
+		1	1	mode bits (10 for mode 2 - 8-bit auto-reload)
+		0	0
+
+timer0 as event counter(mode 2 - 8-bit auto-reload  && interrupt disable) :
+TMOD = 0x06
+TH0  = 
+TL0  = 
+TR0  = 1
+
+timer1 as interval timer (mode 1 - 16-bit && interrupt enable)
+TMOD = 0x90
+TH1  = 
+TL1  = 
+TR1  = 1
+
+
+
+
+
+
+
+
+
+
+
+
+

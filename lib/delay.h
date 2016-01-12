@@ -5,5 +5,6 @@
 
 void delay_us(unsigned int usecond);
 void delay_ms(unsigned int msecond);
+void delay_min();
 
 #endif

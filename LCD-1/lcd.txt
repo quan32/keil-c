@@ -1,0 +1,34 @@
+
+#### Tai lieu
+http://www.ebook.edu.vn/?page=1.6&view=13181
+
+#### Cac chan
+VSS			chan noi dat
+VDD 		chan cap nguon
+VEE 		Dieu chinh do tuong phan cua LCD
+RS 			Register Select
+				0: doc/ghi lenh
+				1: doc/ghi du lieu
+R/W 		read/write
+E 			Enable. Sau khi tin hieu duoc dat len bus DB0-DB7
+			Cac lenh chi duoc chap nhanh khi co 1 xung cho phep cua chan E
+			Read mode	: hight-to-low
+			Write mode	: low-to-height
+			
+DB0-DB7 	8 duong bus du lieu. Co 2 mode
+			Che do 8 bit: Du lieu duoc chuyen tren ca 8 duong
+			Che do 4 bit: Du lieu duoc truyen treen 4 duong DB4-DB7
+			
+			
+### Tap lenh (1 so lenh)
+0x01		Xoa toan bo noi dung dang hien thi tren man hinh 									1,52ms
+0x02		Di chuyen con tro ve vi tri dau man hinh											1.52ms
+0x06		Tu dong di chuyen con tro ve vi tri tiep theo moi khi xuat ra LCD 1 ky tu			37us
+0x0C		Bat hien thi va tat con tro															37us
+0x0E 		Bat hien thi va bat con tro															37us
+0x80 		Di chuyen con tro ve dau dong 1														37us
+0xC0 		Di chuyen con tro ve dau dong 2														37us
+0x38 		Giao tiep 8 bit, hien thi 2 dong, kich thuoc font 5x7								37us
+0x28		Giao tiep 4 bit, hien thi 2 dong, kich thuoc font 5x7								37us
+0x18		Dich toan bo noi dung dang hien thi sang trai 1 o									37us		
+0x1C 		Dich toan bo noi dung dang hien thi sang phai 1 o									37us

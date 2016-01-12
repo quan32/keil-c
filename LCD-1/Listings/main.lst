@@ -1,0 +1,59 @@
+C51 COMPILER V9.54   MAIN                                                                  01/12/2016 12:54:55 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\Objects\main.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\main
+                    -.lst) TABS(2) OBJECT(.\Objects\main.obj)
+
+line level    source
+
+   1          #include <reg51.h>
+   2          #include "../lib/lcd.h"
+   3          
+   4          void main(void) {
+   5   1      
+   6   1        // Xoa man hinh
+   7   1        lcd_cmd(0x01);
+   8   1        
+   9   1        // Bat man hinh, con tro
+  10   1        lcd_cmd(0x0C);
+  11   1        
+  12   1        // Xuat 1 ky tu ra man hinh
+  13   1        lcd_data('A');
+  14   1        //delay_ms(1000);
+  15   1        
+  16   1        //Xoa man hinh
+  17   1        //lcd_cmd(0x01);
+  18   1        
+  19   1        //Xuat 1 doan text ra man hinh
+  20   1        
+  21   1        //Xoa man hinh
+  22   1        //lcd_cmd(0x01);
+  23   1        //lcd_cmd(0x0E);
+  24   1        
+  25   1        //Chuyen con tro xuong dong 2
+  26   1        //lcd_cmd(0x38);
+  27   1        //lcd_cmd(0xC0);
+  28   1        
+  29   1        //Hien thi ky tu
+  30   1        //lcd_data('B');
+  31   1        
+  32   1        while(1) {
+  33   2          
+  34   2        }
+  35   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     17    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

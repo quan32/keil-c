@@ -19,8 +19,9 @@ void lcd_display(unsigned char pos);
 
 void main(void) {	
 	init();
-	lcd_display(1);
-	while(1);
+	while(1) {
+		
+	}
 }
 
 void init() {
@@ -47,27 +48,24 @@ void external_interrupt_isr(void) interrupt 0 {
 	}
 	if (tmp != 0) {
 		pos = tmp;
+		lcd_display(pos);
 	}
-		
-	lcd_display(pos);
 	
 	init();
 }
 
 void lcd_display(unsigned char pos) {
-	pos = 1;
+	
 	lcd_cmd(0x01);
-	lcd_cmd(0x0E);
-	lcd_data('A');
+	lcd_cmd(0x0C);
+
+	lcd_data(pos/10+0x30);
+	lcd_data(pos%10+0x30);
 }
 
 void keyboard_scan_init() {
 	IE  = 0x00;
-	
-	ROW1 = 0;
-	ROW2 = 0;
-	ROW3 = 0;
-	ROW4 = 0;
+	P1  = 0xFF;
 }
 unsigned char scan(unsigned char row) {
 	unsigned char col = 0;

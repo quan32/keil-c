@@ -1,4 +1,5 @@
 ".\Objects\main.obj",
-".\Objects\lcd.obj" 
+".\Objects\lcd.obj",
+".\Objects\STARTUP.obj" 
 TO ".\Objects\keyboard_1" 
 PRINT(".\Listings\keyboard_1.m51")

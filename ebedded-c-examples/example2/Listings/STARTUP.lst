@@ -1,0 +1,33 @@
+A51 MACRO ASSEMBLER  STARTUP                                                              01/13/2016 09:58:53 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02c
+OBJECT MODULE PLACED IN .\Objects\STARTUP.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE STARTUP.A51 SET(SMALL) DEBUG PRINT(.\Listings\STARTUP.lst) OBJECT(.\Obj
+                      ects\STARTUP.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     PUBLIC  CLK
+                       2     PUBLIC  DATA_OUT
+                       3     
+  0092                 4     CLK       BIT 92h    ; Port 1.1
+  0093                 5     DATA_OUT  BIT 93h    ; Port 1.3
+                       6     
+                       7     END
+A51 MACRO ASSEMBLER  STARTUP                                                              01/13/2016 09:58:53 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+CLK. . . . . . . .  B ADDR   0090H.2 A   
+DATA_OUT . . . . .  B ADDR   0090H.3 A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

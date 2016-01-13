@@ -3,12 +3,13 @@
 #include "delay.h"
 #include "delay.c"
 
-sbit LCD_RS = P1^0;
-sbit LCD_EN = P1^1;
+extern bit  LCD_RS;
+extern bit  LCD_EN;
+extern data unsigned char LCD_DATA;
 
-void lcd_cmd(unsigned char cmd) {
+void lcd_cmd(const unsigned char cmd) {
 	LCD_RS 	 = 0;
-	P2 			 = cmd;
+	LCD_DATA = cmd;
 	LCD_EN 	 = 0;
 	LCD_EN 	 = 1;
 	
@@ -19,9 +20,9 @@ void lcd_cmd(unsigned char cmd) {
 	}
 }
 
-void lcd_data(unsigned char c) {
+void lcd_data(const unsigned char c) {
 	LCD_RS 	 = 1;
-	P2 			 = c;
+	LCD_DATA = c;
 	LCD_EN 	 = 0;
 	LCD_EN 	 = 1;
 	
@@ -32,8 +33,8 @@ void lcd_data(unsigned char c) {
 	}
 }
 
-void display_string_on_lcd(unsigned char *str) {
-	unsigned long i;
+void display_string_on_lcd(const unsigned char *str) {
+	unsigned int i=0;
 	
 	while (str[i] != '\0') {
 		lcd_data(str[i++]);

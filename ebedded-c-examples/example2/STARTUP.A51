@@ -1,0 +1,7 @@
+PUBLIC  CLK
+PUBLIC  DATA_OUT
+
+CLK       BIT 92h    ; Port 1.1
+DATA_OUT  BIT 93h    ; Port 1.3
+
+END

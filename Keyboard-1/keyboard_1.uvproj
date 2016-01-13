@@ -373,6 +373,11 @@
               <FileType>1</FileType>
               <FilePath>..\lib\lcd.c</FilePath>
             </File>
+            <File>
+              <FileName>STARTUP.A51</FileName>
+              <FileType>2</FileType>
+              <FilePath>..\LCD\STARTUP.A51</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>

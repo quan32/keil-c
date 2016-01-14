@@ -1,4 +1,4 @@
-A51 MACRO ASSEMBLER  STARTUP                                                              01/13/2016 12:04:22 PAGE     1
+A51 MACRO ASSEMBLER  STARTUP                                                              01/14/2016 03:23:46 PAGE     1
 
 
 MACRO ASSEMBLER A51 V8.02c
@@ -8,17 +8,46 @@ ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE ..\LCD\STARTUP.A51 SET(SMALL) D
 
 LOC  OBJ            LINE     SOURCE
 
-                       1     PUBLIC LCD_RS
-  0080                 2             LCD_RS          bit             080h    ; Port 0.0
-                       3                     
-                       4     PUBLIC LCD_EN
-  0081                 5             LCD_EN          bit             081h    ; Port 0.1
-                       6                     
-                       7     PUBLIC LCD_DATA
-  00A0                 8             LCD_DATA        data    0A0h    ; Port 2
-                       9                     
-                      10     END
-A51 MACRO ASSEMBLER  STARTUP                                                              01/13/2016 12:04:22 PAGE     2
+                       1     ; lcd
+                       2     PUBLIC LCD_RS
+  0080                 3             LCD_RS          bit             080h    ; Port 0.0
+                       4                     
+                       5     PUBLIC LCD_EN
+  0081                 6             LCD_EN          bit             081h    ; Port 0.1
+                       7                     
+                       8     PUBLIC LCD_DATA
+  00A0                 9             LCD_DATA        data    0A0h    ; Port 2
+                      10                     
+                      11     ; keyboard
+                      12     PUBLIC KEYBOARD
+  0090                13             KEYBOARD        data    090h    ; Port 1
+                      14     
+                      15     PUBLIC KEYBOARD_COL1
+  0090                16             KEYBOARD_COL1   bit             090h    ; Port 1.0
+                      17     
+                      18     PUBLIC KEYBOARD_COL2
+  0091                19             KEYBOARD_COL2   bit             091h    ; Port 1.1
+                      20     
+                      21     PUBLIC KEYBOARD_COL3
+  0092                22             KEYBOARD_COL3   bit             092h    ; Port 1.2
+                      23     
+                      24     PUBLIC KEYBOARD_COL4
+  0093                25             KEYBOARD_COL4   bit             093h    ; Port 1.3
+                      26     
+                      27     PUBLIC KEYBOARD_ROW1
+  0094                28             KEYBOARD_ROW1   bit             094h    ; Port 1.4
+                      29     
+                      30     PUBLIC KEYBOARD_ROW2
+  0095                31             KEYBOARD_ROW2   bit             095h    ; Port 1.5
+                      32     
+                      33     PUBLIC KEYBOARD_ROW3
+  0096                34             KEYBOARD_ROW3   bit             096h    ; Port 1.6
+                      35     
+                      36     PUBLIC KEYBOARD_ROW4
+  0097                37             KEYBOARD_ROW4   bit             097h    ; Port 1.7
+                      38                     
+                      39     END
+A51 MACRO ASSEMBLER  STARTUP                                                              01/14/2016 03:23:46 PAGE     2
 
 SYMBOL TABLE LISTING
 ------ ----- -------
@@ -26,6 +55,15 @@ SYMBOL TABLE LISTING
 
 N A M E             T Y P E  V A L U E   ATTRIBUTES
 
+KEYBOARD . . . . .  D ADDR   0090H   A   
+KEYBOARD_COL1. . .  B ADDR   0090H.0 A   
+KEYBOARD_COL2. . .  B ADDR   0090H.1 A   
+KEYBOARD_COL3. . .  B ADDR   0090H.2 A   
+KEYBOARD_COL4. . .  B ADDR   0090H.3 A   
+KEYBOARD_ROW1. . .  B ADDR   0090H.4 A   
+KEYBOARD_ROW2. . .  B ADDR   0090H.5 A   
+KEYBOARD_ROW3. . .  B ADDR   0090H.6 A   
+KEYBOARD_ROW4. . .  B ADDR   0090H.7 A   
 LCD_DATA . . . . .  D ADDR   00A0H   A   
 LCD_EN . . . . . .  B ADDR   0080H.1 A   
 LCD_RS . . . . . .  B ADDR   0080H.0 A   

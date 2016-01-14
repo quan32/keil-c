@@ -1,0 +1,38 @@
+A51 MACRO ASSEMBLER  STARTUP                                                              01/14/2016 06:56:01 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02c
+OBJECT MODULE PLACED IN .\Objects\STARTUP.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE STARTUP.A51 SET(SMALL) DEBUG PRINT(.\Listings\STARTUP.lst) OBJECT(.\Obj
+                      ects\STARTUP.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     ; IC74595
+                       2     PUBLIC IC74595_SHCP
+  00A0                 3             IC74595_SHCP    bit     0A0h    ; Pin P2.0
+                       4     
+                       5     PUBLIC IC74595_DS
+  00A1                 6             IC74595_DS              bit     0A1h    ; Pin P2.1
+                       7     
+                       8     PUBLIC IC74595_STCP
+  00A2                 9             IC74595_STCP    bit     0A2h    ; Pin P2.2
+                      10     
+                      11     END
+A51 MACRO ASSEMBLER  STARTUP                                                              01/14/2016 06:56:01 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+IC74595_DS . . . .  B ADDR   00A0H.1 A   
+IC74595_SHCP . . .  B ADDR   00A0H.0 A   
+IC74595_STCP . . .  B ADDR   00A0H.2 A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

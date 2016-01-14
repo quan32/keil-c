@@ -1,0 +1,14 @@
+### DEfination
+	Mo rong port bang chot
+		Khi chot = 1: co the dua du lieu ra output
+		Khi chot = 0: du input thay doi thi out push cung khong thay doi
+		
+### Documents
+	https://www.youtube.com/watch?v=rJXcnoJbd4k&list=PLhFjtzzUovr-YW6vlzkiUJRo88T4deV23&index=41
+	
+### Pins
+	D0-D7	input data pins
+	Q0-Q7	output data pins
+	OE		output enable (active LOW)
+	LE		latch enable
+	

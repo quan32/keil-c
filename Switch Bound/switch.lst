@@ -1,0 +1,66 @@
+C51 COMPILER V9.54   SWITCH                                                                01/14/2016 04:40:59 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE SWITCH
+OBJECT MODULE PLACED IN .\switch.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE ..\lib\switch.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\swit
+                    -ch.lst) TABS(2) OBJECT(.\switch.obj)
+
+line level    source
+
+   1          #include <reg51.h>
+   2          #include "switch.h"
+   3          
+   4          struct SWITCH_CONTROL {
+   5            unsigned char type;
+   6          };
+   7          
+   8          /** 
+   9           *  init external interrupt
+  10          **/
+  11          void switch_init(const unsigned char type) {
+  12   1        switch_ctrl->type = type;
+  13   1        switch_init_exec();
+  14   1      }
+  15          
+  16          static void switch_init_exec() {
+  17   1        // use external interrupt 0
+  18   1        if (switch_ctrl->type == 0) {
+  19   2          IE   = 0x81;
+  20   2          IT0  = 1;
+  21   2        } else {
+  22   2          IE   = 0x84;
+  23   2          IT1  = 1;
+  24   2        }
+  25   1      }
+  26          
+  27          /**
+  28           *  external interrupt 0 irs
+  29          **/
+  30          static void keyboard_external_interrupt0_isr(void) interrupt 0 {
+  31   1      
+  32   1        switch_do_job();
+  33   1      }
+  34          
+  35          /**
+  36           *  external interrupt 1 irs
+  37          **/
+  38          static void keyboard_external_interrupt1_isr(void) interrupt 3 {
+  39   1        
+  40   1        switch_do_job();
+  41   1        
+  42   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    154    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      3    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

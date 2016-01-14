@@ -23,17 +23,21 @@ Project File Date:  01/13/2016
 
 <h2>Output:</h2>
 Build target 'Target 1'
-compiling lcd.c...
+compiling main.c...
 linking...
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?_DELAY_US?LCD
+    SEGMENT: ?PR?_LCD_MOVE_TO_LINE_BEGINER?LCD
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?DELAY_MIN?LCD
+    SEGMENT: ?PR?_LCD_DATA_AT?LCD
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?_DISPLAY_STRING_ON_LCD?LCD
-Program Size: data=14.0 xdata=0 code=225
+    SEGMENT: ?PR?_LCD_DISPLAY_NUMBER_AT?LCD
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY_US?DELAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DELAY_MIN?DELAY
+Program Size: data=30.0 xdata=0 code=579
 creating hex file from ".\Objects\lcd"...
-".\Objects\lcd" - 0 Error(s), 3 Warning(s).
+".\Objects\lcd" - 0 Error(s), 5 Warning(s).
 </pre>
 </body>
 </html>

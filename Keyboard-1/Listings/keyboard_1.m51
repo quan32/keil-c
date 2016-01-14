@@ -1,8 +1,8 @@
-BL51 BANKED LINKER/LOCATER V6.22                                                        01/14/2016  03:37:51  PAGE 1
+BL51 BANKED LINKER/LOCATER V6.22                                                        01/14/2016  04:33:53  PAGE 1
 
 
 BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
-C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\main.obj, .\Objects\lcd.obj, .\Objects\STARTUP.obj, .\Objects\keyboard.obj TO .\Ob
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\main.obj, .\Objects\lcd.obj, .\Objects\keyboard.obj, .\Objects\STARTUP.obj TO .\Ob
 >> jects\keyboard_1 PRINT (.\Listings\keyboard_1.m51)
 
 
@@ -12,12 +12,13 @@ MEMORY MODEL: SMALL
 INPUT MODULES INCLUDED:
   .\Objects\main.obj (MAIN)
   .\Objects\lcd.obj (LCD)
-  .\Objects\STARTUP.obj (STARTUP)
   .\Objects\keyboard.obj (KEYBOARD)
+  .\Objects\STARTUP.obj (STARTUP)
   C:\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
   C:\KEIL_V5\C51\LIB\C51S.LIB (?C?CLDPTR)
   C:\KEIL_V5\C51\LIB\C51S.LIB (?C?CLDOPTR)
   C:\KEIL_V5\C51\LIB\C51S.LIB (?C?CSTPTR)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?UIDIV)
 
 
 LINK MAP OF MODULE:  .\Objects\keyboard_1 (MAIN)
@@ -29,10 +30,10 @@ LINK MAP OF MODULE:  .\Objects\keyboard_1 (MAIN)
             * * * * * * *   D A T A   M E M O R Y   * * * * * * *
             REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
             DATA    0008H     0005H     UNIT         ?DT?_DISPLAY_STRING_ON_LCD?LCD
-            DATA    000DH     0003H     UNIT         ?DT?MAIN
-            DATA    0010H     0003H     UNIT         ?DT?KEYBOARD
-            DATA    0013H     0002H     UNIT         _DATA_GROUP_
-            IDATA   0015H     0001H     UNIT         ?STACK
+            DATA    000DH     0004H     UNIT         _DATA_GROUP_
+            DATA    0011H     0003H     UNIT         ?DT?MAIN
+            DATA    0014H     0003H     UNIT         ?DT?KEYBOARD
+            IDATA   0017H     0001H     UNIT         ?STACK
 
             * * * * * * *   C O D E   M E M O R Y   * * * * * * *
             CODE    0000H     0003H     ABSOLUTE     
@@ -40,26 +41,27 @@ LINK MAP OF MODULE:  .\Objects\keyboard_1 (MAIN)
                     0006H     0015H                  *** GAP ***
             CODE    001BH     0003H     ABSOLUTE     
                     001EH     07E2H                  *** GAP ***
-            CODE    0800H     0058H     UNIT         ?C?LIB_CODE
-            CODE    0858H     0055H     UNIT         ?PR?KEYBOARD_EXTERNAL_INTERRUPT0_ISR?KEYBOARD
-            CODE    08ADH     0055H     UNIT         ?PR?KEYBOARD_EXTERNAL_INTERRUPT1_ISR?KEYBOARD
-            CODE    0902H     0048H     UNIT         ?PR?_SCAN?KEYBOARD
-            CODE    094AH     0035H     UNIT         ?PR?_DISPLAY_STRING_ON_LCD?LCD
-            CODE    097FH     0026H     UNIT         ?PR?_DO_JOB?MAIN
-            CODE    09A5H     0020H     UNIT         ?PR?_DELAY_MS?LCD
-            CODE    09C5H     0020H     UNIT         ?PR?KEYBOARD_INIT_EXEC?KEYBOARD
-            CODE    09E5H     001CH     UNIT         ?PR?_LCD_CMD?LCD
-            CODE    0A01H     001CH     UNIT         ?PR?_LCD_DATA?LCD
-            CODE    0A1DH     0010H     UNIT         ?PR?_DELAY_US?LCD
-            CODE    0A2DH     000DH     UNIT         ?PR?_KEYBOARD_INIT?KEYBOARD
-            CODE    0A3AH     000CH     UNIT         ?C_C51STARTUP
-            CODE    0A46H     0007H     UNIT         ?PR?MAIN?MAIN
-            CODE    0A4DH     0007H     UNIT         ?PR?KEYBOARD_SCAN_INIT?KEYBOARD
-            CODE    0A54H     0001H     UNIT         ?PR?DELAY_MIN?LCD
+            CODE    0800H     00ADH     UNIT         ?C?LIB_CODE
+            CODE    08ADH     0055H     UNIT         ?PR?KEYBOARD_EXTERNAL_INTERRUPT0_ISR?KEYBOARD
+            CODE    0902H     0055H     UNIT         ?PR?KEYBOARD_EXTERNAL_INTERRUPT1_ISR?KEYBOARD
+            CODE    0957H     0048H     UNIT         ?PR?_SCAN?KEYBOARD
+            CODE    099FH     0046H     UNIT         ?PR?_LCD_DISPLAY_NUMBER?LCD
+            CODE    09E5H     0035H     UNIT         ?PR?_DISPLAY_STRING_ON_LCD?LCD
+            CODE    0A1AH     0020H     UNIT         ?PR?_DELAY_MS?LCD
+            CODE    0A3AH     0020H     UNIT         ?PR?KEYBOARD_INIT_EXEC?KEYBOARD
+            CODE    0A5AH     001CH     UNIT         ?PR?_LCD_CMD?LCD
+            CODE    0A76H     001CH     UNIT         ?PR?_LCD_DATA?LCD
+            CODE    0A92H     0010H     UNIT         ?PR?_DELAY_US?LCD
+            CODE    0AA2H     000DH     UNIT         ?PR?_KEYBOARD_INIT?KEYBOARD
+            CODE    0AAFH     000CH     UNIT         ?C_C51STARTUP
+            CODE    0ABBH     0007H     UNIT         ?PR?MAIN?MAIN
+            CODE    0AC2H     0007H     UNIT         ?PR?KEYBOARD_SCAN_INIT?KEYBOARD
+            CODE    0AC9H     0005H     UNIT         ?PR?_KEYBOARD_DO_JOB?MAIN
+            CODE    0ACEH     0001H     UNIT         ?PR?DELAY_MIN?LCD
+
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/14/2016  04:33:53  PAGE 2
 
 
-
-BL51 BANKED LINKER/LOCATER V6.22                                                      01/14/2016  03:37:51  PAGE 2
 
 
 OVERLAY MAP OF MODULE:   .\Objects\keyboard_1 (MAIN)
@@ -71,10 +73,13 @@ SEGMENT                                            DATA_GROUP
 ?PR?KEYBOARD_EXTERNAL_INTERRUPT0_ISR?...         -----    -----
   +--> ?PR?KEYBOARD_SCAN_INIT?KEYBOARD
   +--> ?PR?_SCAN?KEYBOARD
-  +--> ?PR?_DO_JOB?MAIN
+  +--> ?PR?_KEYBOARD_DO_JOB?MAIN
   +--> ?PR?KEYBOARD_INIT_EXEC?KEYBOARD
 
-?PR?_DO_JOB?MAIN                                 0014H    0001H
+?PR?_KEYBOARD_DO_JOB?MAIN                        -----    -----
+  +--> ?PR?_LCD_DISPLAY_NUMBER?LCD
+
+?PR?_LCD_DISPLAY_NUMBER?LCD                      000FH    0002H
   +--> ?PR?_LCD_CMD?LCD
   +--> ?PR?_LCD_DATA?LCD
 
@@ -89,7 +94,7 @@ SEGMENT                                            DATA_GROUP
 ?PR?KEYBOARD_EXTERNAL_INTERRUPT1_ISR?...         -----    -----
   +--> ?PR?KEYBOARD_SCAN_INIT?KEYBOARD
   +--> ?PR?_SCAN?KEYBOARD
-  +--> ?PR?_DO_JOB?MAIN
+  +--> ?PR?_KEYBOARD_DO_JOB?MAIN
   +--> ?PR?KEYBOARD_INIT_EXEC?KEYBOARD
 
 *** NEW ROOT ***************************************************
@@ -112,41 +117,39 @@ SYMBOL TABLE OF MODULE:  .\Objects\keyboard_1 (MAIN)
 
   -------         MODULE        MAIN
   C:0000H         SYMBOL        _ICE_DUMMY_
-  C:0A46H         PUBLIC        main
-  D:000DH         SYMBOL        keyboard_ctrl
-  C:097FH         PUBLIC        _do_job
+  C:0ABBH         PUBLIC        main
+  C:0AC9H         PUBLIC        _keyboard_do_job
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/14/2016  04:33:53  PAGE 3
+
+
+  D:0011H         SYMBOL        keyboard_ctrl
   -------         PROC          MAIN
-  C:0A46H         LINE#         11
-  C:0A46H         LINE#         12
-  C:0A4BH         LINE#         13
-BL51 BANKED LINKER/LOCATER V6.22                                                      01/14/2016  03:37:51  PAGE 3
-
-
-  C:0A4BH         LINE#         15
+  C:0ABBH         LINE#         11
+  C:0ABBH         LINE#         12
+  C:0AC0H         LINE#         13
+  C:0AC0H         LINE#         15
   -------         ENDPROC       MAIN
-  -------         PROC          _DO_JOB
-  D:0014H         SYMBOL        pos
-  C:097FH         LINE#         18
-  C:0981H         LINE#         20
-  C:0986H         LINE#         21
-  C:098BH         LINE#         23
-  C:0997H         LINE#         24
-  -------         ENDPROC       _DO_JOB
+  -------         PROC          _KEYBOARD_DO_JOB
+  D:0007H         SYMBOL        pos
+  C:0AC9H         LINE#         18
+  C:0AC9H         LINE#         19
+  -------         ENDPROC       _KEYBOARD_DO_JOB
   -------         ENDMOD        MAIN
 
   -------         MODULE        LCD
   C:0000H         SYMBOL        _ICE_DUMMY_
-  C:0A01H         PUBLIC        _lcd_data
-  C:0A54H         PUBLIC        delay_min
-  C:094AH         PUBLIC        _display_string_on_lcd
-  C:09E5H         PUBLIC        _lcd_cmd
-  C:09A5H         PUBLIC        _delay_ms
-  C:0A1DH         PUBLIC        _delay_us
+  C:0A76H         PUBLIC        _lcd_data
+  C:0ACEH         PUBLIC        delay_min
+  C:09E5H         PUBLIC        _display_string_on_lcd
+  C:0A5AH         PUBLIC        _lcd_cmd
+  C:0A1AH         PUBLIC        _delay_ms
+  C:0A92H         PUBLIC        _delay_us
+  C:099FH         PUBLIC        _lcd_display_number
   -------         PROC          _DELAY_US
   D:0006H         SYMBOL        usecond
-  C:0A1DH         LINE#         3
-  C:0A1DH         LINE#         4
-  C:0A2CH         LINE#         5
+  C:0A92H         LINE#         3
+  C:0A92H         LINE#         4
+  C:0AA1H         LINE#         5
   -------         ENDPROC       _DELAY_US
   -------         PROC          _DELAY_MS
   D:0006H         SYMBOL        msecond
@@ -154,63 +157,211 @@ SYMBOL TABLE OF MODULE:  .\Objects\keyboard_1 (MAIN)
   D:0004H         SYMBOL        i
   D:0002H         SYMBOL        j
   -------         ENDDO         
-  C:09A5H         LINE#         7
-  C:09A5H         LINE#         8
-  C:09A8H         LINE#         10
-  C:09AFH         LINE#         11
-  C:09C4H         LINE#         12
+  C:0A1AH         LINE#         7
+  C:0A1AH         LINE#         8
+  C:0A1DH         LINE#         10
+  C:0A24H         LINE#         11
+  C:0A39H         LINE#         12
   -------         ENDPROC       _DELAY_MS
   -------         PROC          DELAY_MIN
-  C:0A54H         LINE#         15
-  C:0A54H         LINE#         17
+  C:0ACEH         LINE#         15
+  C:0ACEH         LINE#         17
   -------         ENDPROC       DELAY_MIN
   -------         PROC          _LCD_CMD
   D:0007H         SYMBOL        cmd
-  C:09E5H         LINE#         10
-  C:09E5H         LINE#         11
-  C:09E7H         LINE#         12
-  C:09E9H         LINE#         13
-  C:09EBH         LINE#         14
-  C:09EDH         LINE#         16
-  C:09F5H         LINE#         17
-  C:09F7H         LINE#         18
-  C:09F9H         LINE#         19
-  C:0A00H         LINE#         20
-  C:0A00H         LINE#         21
+  C:0A5AH         LINE#         10
+  C:0A5AH         LINE#         11
+  C:0A5CH         LINE#         12
+  C:0A5EH         LINE#         13
+  C:0A60H         LINE#         14
+  C:0A62H         LINE#         16
+  C:0A6AH         LINE#         17
+  C:0A6CH         LINE#         18
+  C:0A6EH         LINE#         19
+  C:0A75H         LINE#         20
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/14/2016  04:33:53  PAGE 4
+
+
+  C:0A75H         LINE#         21
   -------         ENDPROC       _LCD_CMD
   -------         PROC          _LCD_DATA
-BL51 BANKED LINKER/LOCATER V6.22                                                      01/14/2016  03:37:51  PAGE 4
-
-
   D:0007H         SYMBOL        c
-  C:0A01H         LINE#         23
-  C:0A01H         LINE#         24
-  C:0A03H         LINE#         25
-  C:0A05H         LINE#         26
-  C:0A07H         LINE#         27
-  C:0A09H         LINE#         29
-  C:0A11H         LINE#         30
-  C:0A13H         LINE#         31
-  C:0A15H         LINE#         32
-  C:0A1CH         LINE#         33
-  C:0A1CH         LINE#         34
+  C:0A76H         LINE#         23
+  C:0A76H         LINE#         24
+  C:0A78H         LINE#         25
+  C:0A7AH         LINE#         26
+  C:0A7CH         LINE#         27
+  C:0A7EH         LINE#         29
+  C:0A86H         LINE#         30
+  C:0A88H         LINE#         31
+  C:0A8AH         LINE#         32
+  C:0A91H         LINE#         33
+  C:0A91H         LINE#         34
   -------         ENDPROC       _LCD_DATA
+  -------         PROC          _LCD_DISPLAY_NUMBER
+  D:000FH         SYMBOL        number
+  C:099FH         LINE#         36
+  C:09A3H         LINE#         37
+  C:09A8H         LINE#         38
+  C:09ADH         LINE#         40
+  C:09B3H         LINE#         41
+  C:09BBH         LINE#         43
+  C:09BBH         LINE#         45
+  C:09C1H         LINE#         46
+  C:09D3H         LINE#         47
+  C:09E2H         LINE#         48
+  C:09E4H         LINE#         49
+  -------         ENDPROC       _LCD_DISPLAY_NUMBER
   -------         PROC          _DISPLAY_STRING_ON_LCD
   D:0008H         SYMBOL        str
   -------         DO            
   D:000BH         SYMBOL        i
   -------         ENDDO         
-  C:094AH         LINE#         36
-  C:0950H         LINE#         37
-  C:0955H         LINE#         39
-  C:0966H         LINE#         40
-  C:097CH         LINE#         41
-  C:097EH         LINE#         42
+  C:09E5H         LINE#         51
+  C:09EBH         LINE#         52
+  C:09F0H         LINE#         54
+  C:0A01H         LINE#         55
+  C:0A17H         LINE#         56
+  C:0A19H         LINE#         57
   -------         ENDPROC       _DISPLAY_STRING_ON_LCD
   -------         ENDMOD        LCD
 
+  -------         MODULE        KEYBOARD
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:00A8H         PUBLIC        IE
+  C:0957H         SYMBOL        _scan
+  B:0088H.0       PUBLIC        IT0
+  B:0088H.2       PUBLIC        IT1
+  C:08ADH         SYMBOL        keyboard_external_interrupt0_isr
+  C:0902H         SYMBOL        keyboard_external_interrupt1_isr
+  C:0AA2H         PUBLIC        _keyboard_init
+  D:0014H         SYMBOL        keyboard_ctrl
+  C:0AC2H         SYMBOL        keyboard_scan_init
+  C:0A3AH         SYMBOL        keyboard_init_exec
+  -------         PROC          _KEYBOARD_INIT
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/14/2016  04:33:53  PAGE 5
+
+
+  D:0007H         SYMBOL        type
+  C:0AA2H         LINE#         11
+  C:0AA2H         LINE#         12
+  C:0AACH         LINE#         13
+  -------         ENDPROC       _KEYBOARD_INIT
+  -------         PROC          KEYBOARD_INIT_EXEC
+  C:0A3AH         LINE#         16
+  C:0A3AH         LINE#         18
+  C:0A45H         LINE#         19
+  C:0A48H         LINE#         20
+  C:0A4AH         LINE#         21
+  C:0A4CH         LINE#         22
+  C:0A4FH         LINE#         23
+  C:0A51H         LINE#         24
+  C:0A51H         LINE#         26
+  C:0A53H         LINE#         27
+  C:0A55H         LINE#         28
+  C:0A57H         LINE#         29
+  C:0A59H         LINE#         30
+  -------         ENDPROC       KEYBOARD_INIT_EXEC
+  -------         PROC          KEYBOARD_SCAN_INIT
+  C:0AC2H         LINE#         37
+  C:0AC2H         LINE#         38
+  C:0AC5H         LINE#         39
+  C:0AC8H         LINE#         40
+  -------         ENDPROC       KEYBOARD_SCAN_INIT
+  -------         PROC          _SCAN
+  D:0007H         SYMBOL        row
+  -------         DO            
+  D:0006H         SYMBOL        col
+  -------         ENDDO         
+  C:0957H         LINE#         45
+  C:0957H         LINE#         46
+  C:0959H         LINE#         48
+  C:0968H         LINE#         49
+  C:0968H         LINE#         50
+  C:096AH         LINE#         51
+  C:096CH         LINE#         53
+  C:096CH         LINE#         54
+  C:096EH         LINE#         55
+  C:0970H         LINE#         57
+  C:0970H         LINE#         58
+  C:0972H         LINE#         59
+  C:0974H         LINE#         61
+  C:0974H         LINE#         62
+  C:0976H         LINE#         63
+  C:0976H         LINE#         65
+  C:0976H         LINE#         66
+  C:0976H         LINE#         67
+  C:0976H         LINE#         69
+  C:0979H         LINE#         70
+  C:097BH         LINE#         71
+  C:0980H         LINE#         72
+  C:0982H         LINE#         73
+  C:0987H         LINE#         74
+  C:0989H         LINE#         75
+  C:098EH         LINE#         76
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/14/2016  04:33:53  PAGE 6
+
+
+  C:0990H         LINE#         77
+  C:0990H         LINE#         79
+  C:0993H         LINE#         80
+  C:099CH         LINE#         81
+  C:099CH         LINE#         83
+  C:099EH         LINE#         84
+  -------         ENDPROC       _SCAN
+  -------         PROC          KEYBOARD_EXTERNAL_INTERRUPT0_ISR
+  -------         DO            
+  D:0005H         SYMBOL        i
+  D:0004H         SYMBOL        pos
+  D:0007H         SYMBOL        tmp
+  -------         ENDDO         
+  C:08ADH         LINE#         89
+  C:08CAH         LINE#         90
+  C:08CCH         LINE#         91
+  C:08CEH         LINE#         93
+  C:08D1H         LINE#         95
+  C:08D2H         LINE#         96
+  C:08D7H         LINE#         97
+  C:08DAH         LINE#         98
+  C:08DAH         LINE#         99
+  C:08DAH         LINE#         100
+  C:08DEH         LINE#         101
+  C:08E1H         LINE#         102
+  C:08E1H         LINE#         103
+  C:08E4H         LINE#         104
+  C:08E4H         LINE#         106
+  C:08E7H         LINE#         107
+  -------         ENDPROC       KEYBOARD_EXTERNAL_INTERRUPT0_ISR
+  -------         PROC          KEYBOARD_EXTERNAL_INTERRUPT1_ISR
+  -------         DO            
+  D:0005H         SYMBOL        i
+  D:0004H         SYMBOL        pos
+  D:0007H         SYMBOL        tmp
+  -------         ENDDO         
+  C:0902H         LINE#         112
+  C:091FH         LINE#         113
+  C:0921H         LINE#         114
+  C:0923H         LINE#         116
+  C:0926H         LINE#         118
+  C:0927H         LINE#         119
+  C:092CH         LINE#         120
+  C:092FH         LINE#         121
+  C:092FH         LINE#         122
+  C:092FH         LINE#         123
+  C:0933H         LINE#         124
+  C:0936H         LINE#         125
+  C:0936H         LINE#         126
+  C:0939H         LINE#         127
+  C:0939H         LINE#         129
+  C:093CH         LINE#         130
+  -------         ENDPROC       KEYBOARD_EXTERNAL_INTERRUPT1_ISR
+  -------         ENDMOD        KEYBOARD
+
   -------         MODULE        STARTUP
   D:0090H         PUBLIC        KEYBOARD
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/14/2016  04:33:53  PAGE 7
+
+
   B:0090H.0       PUBLIC        KEYBOARD_COL1
   B:0090H.1       PUBLIC        KEYBOARD_COL2
   B:0090H.2       PUBLIC        KEYBOARD_COL3
@@ -224,143 +375,9 @@ SYMBOL TABLE OF MODULE:  .\Objects\keyboard_1 (MAIN)
   B:0080H.0       PUBLIC        LCD_RS
   -------         ENDMOD        STARTUP
 
-  -------         MODULE        KEYBOARD
-  C:0000H         SYMBOL        _ICE_DUMMY_
-  D:00A8H         PUBLIC        IE
-  C:0902H         SYMBOL        _scan
-  B:0088H.0       PUBLIC        IT0
-  B:0088H.2       PUBLIC        IT1
-  C:0858H         SYMBOL        keyboard_external_interrupt0_isr
-  C:08ADH         SYMBOL        keyboard_external_interrupt1_isr
-  C:0A2DH         PUBLIC        _keyboard_init
-  D:0010H         SYMBOL        keyboard_ctrl
-  C:0A4DH         SYMBOL        keyboard_scan_init
-  C:09C5H         SYMBOL        keyboard_init_exec
-  -------         PROC          _KEYBOARD_INIT
-  D:0007H         SYMBOL        type
-  C:0A2DH         LINE#         11
-BL51 BANKED LINKER/LOCATER V6.22                                                      01/14/2016  03:37:51  PAGE 5
-
-
-  C:0A2DH         LINE#         12
-  C:0A37H         LINE#         13
-  -------         ENDPROC       _KEYBOARD_INIT
-  -------         PROC          KEYBOARD_INIT_EXEC
-  C:09C5H         LINE#         16
-  C:09C5H         LINE#         18
-  C:09D0H         LINE#         19
-  C:09D3H         LINE#         20
-  C:09D5H         LINE#         21
-  C:09D7H         LINE#         22
-  C:09DAH         LINE#         23
-  C:09DCH         LINE#         24
-  C:09DCH         LINE#         26
-  C:09DEH         LINE#         27
-  C:09E0H         LINE#         28
-  C:09E2H         LINE#         29
-  C:09E4H         LINE#         30
-  -------         ENDPROC       KEYBOARD_INIT_EXEC
-  -------         PROC          KEYBOARD_SCAN_INIT
-  C:0A4DH         LINE#         37
-  C:0A4DH         LINE#         38
-  C:0A50H         LINE#         39
-  C:0A53H         LINE#         40
-  -------         ENDPROC       KEYBOARD_SCAN_INIT
-  -------         PROC          _SCAN
-  D:0007H         SYMBOL        row
-  -------         DO            
-  D:0006H         SYMBOL        col
-  -------         ENDDO         
-  C:0902H         LINE#         45
-  C:0902H         LINE#         46
-  C:0904H         LINE#         48
-  C:0913H         LINE#         49
-  C:0913H         LINE#         50
-  C:0915H         LINE#         51
-  C:0917H         LINE#         53
-  C:0917H         LINE#         54
-  C:0919H         LINE#         55
-  C:091BH         LINE#         57
-  C:091BH         LINE#         58
-  C:091DH         LINE#         59
-  C:091FH         LINE#         61
-  C:091FH         LINE#         62
-  C:0921H         LINE#         63
-  C:0921H         LINE#         65
-  C:0921H         LINE#         66
-  C:0921H         LINE#         67
-  C:0921H         LINE#         69
-  C:0924H         LINE#         70
-  C:0926H         LINE#         71
-  C:092BH         LINE#         72
-  C:092DH         LINE#         73
-  C:0932H         LINE#         74
-  C:0934H         LINE#         75
-  C:0939H         LINE#         76
-  C:093BH         LINE#         77
-  C:093BH         LINE#         79
-BL51 BANKED LINKER/LOCATER V6.22                                                      01/14/2016  03:37:51  PAGE 6
-
-
-  C:093EH         LINE#         80
-  C:0947H         LINE#         81
-  C:0947H         LINE#         83
-  C:0949H         LINE#         84
-  -------         ENDPROC       _SCAN
-  -------         PROC          KEYBOARD_EXTERNAL_INTERRUPT0_ISR
-  -------         DO            
-  D:0005H         SYMBOL        i
-  D:0004H         SYMBOL        pos
-  D:0007H         SYMBOL        tmp
-  -------         ENDDO         
-  C:0858H         LINE#         89
-  C:0875H         LINE#         90
-  C:0877H         LINE#         91
-  C:0879H         LINE#         93
-  C:087CH         LINE#         95
-  C:087DH         LINE#         96
-  C:0882H         LINE#         97
-  C:0885H         LINE#         98
-  C:0885H         LINE#         99
-  C:0885H         LINE#         100
-  C:0889H         LINE#         101
-  C:088CH         LINE#         102
-  C:088CH         LINE#         103
-  C:088FH         LINE#         104
-  C:088FH         LINE#         106
-  C:0892H         LINE#         107
-  -------         ENDPROC       KEYBOARD_EXTERNAL_INTERRUPT0_ISR
-  -------         PROC          KEYBOARD_EXTERNAL_INTERRUPT1_ISR
-  -------         DO            
-  D:0005H         SYMBOL        i
-  D:0004H         SYMBOL        pos
-  D:0007H         SYMBOL        tmp
-  -------         ENDDO         
-  C:08ADH         LINE#         112
-  C:08CAH         LINE#         113
-  C:08CCH         LINE#         114
-  C:08CEH         LINE#         116
-  C:08D1H         LINE#         118
-  C:08D2H         LINE#         119
-  C:08D7H         LINE#         120
-  C:08DAH         LINE#         121
-  C:08DAH         LINE#         122
-  C:08DAH         LINE#         123
-  C:08DEH         LINE#         124
-  C:08E1H         LINE#         125
-  C:08E1H         LINE#         126
-  C:08E4H         LINE#         127
-  C:08E4H         LINE#         129
-  C:08E7H         LINE#         130
-  -------         ENDPROC       KEYBOARD_EXTERNAL_INTERRUPT1_ISR
-  -------         ENDMOD        KEYBOARD
-
   -------         MODULE        ?C?CLDPTR
   C:0800H         PUBLIC        ?C?CLDPTR
   -------         ENDMOD        ?C?CLDPTR
-
-BL51 BANKED LINKER/LOCATER V6.22                                                      01/14/2016  03:37:51  PAGE 7
-
 
   -------         MODULE        ?C?CLDOPTR
   C:0819H         PUBLIC        ?C?CLDOPTR
@@ -369,6 +386,10 @@ SYMBOL TABLE OF MODULE:  .\Objects\keyboard_1 (MAIN)
   -------         MODULE        ?C?CSTPTR
   C:0846H         PUBLIC        ?C?CSTPTR
   -------         ENDMOD        ?C?CSTPTR
+
+  -------         MODULE        ?C?UIDIV
+  C:0858H         PUBLIC        ?C?UIDIV
+  -------         ENDMOD        ?C?UIDIV
 
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
     SEGMENT: ?PR?_DELAY_US?LCD
@@ -380,13 +401,13 @@ SYMBOL TABLE OF MODULE:  .\Objects\keyboard_1 (MAIN)
     SEGMENT: ?PR?_DISPLAY_STRING_ON_LCD?LCD
 
 *** WARNING L15: MULTIPLE CALL TO SEGMENT
-    SEGMENT: ?PR?_DO_JOB?MAIN
+    SEGMENT: ?PR?_LCD_DISPLAY_NUMBER?LCD
     CALLER1: ?PR?KEYBOARD_EXTERNAL_INTERRUPT0_ISR?KEYBOARD
     CALLER2: ?PR?KEYBOARD_EXTERNAL_INTERRUPT1_ISR?KEYBOARD
 
 ******************************************************************************
-* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 01F7H BYTE (24%) *
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 021CH BYTE (26%) *
 ******************************************************************************
 
-Program Size: data=22.0 xdata=0 code=606
+Program Size: data=24.0 xdata=0 code=728
 LINK/LOCATE RUN COMPLETE.  4 WARNING(S),  0 ERROR(S)

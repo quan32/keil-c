@@ -1,5 +1,6 @@
 ".\Objects\main.obj",
 ".\Objects\STARTUP.obj",
-".\Objects\lcd.obj" 
+".\Objects\lcd.obj",
+".\Objects\delay.obj" 
 TO ".\Objects\lcd" 
 PRINT(".\Listings\lcd.m51")

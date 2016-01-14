@@ -15,11 +15,6 @@ void main(void) {
 	}
 }
 
-void do_job(const unsigned char pos) {
-	
-	lcd_cmd(0x01);
-	lcd_cmd(0x0C);
-
-	lcd_data(pos/10+0x30);
-	lcd_data(pos%10+0x30);
+void keyboard_do_job(const unsigned char pos) {
+	lcd_display_number(pos);
 }

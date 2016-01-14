@@ -1,0 +1,167 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        01/14/2016  08:23:24  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\STARTUP.obj, .\Objects\main.obj, .\Objects\IC74573.obj, .\Objects\delay.obj TO .\O
+>> bjects\IC74573 PRINT (.\Listings\IC74573.m51)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\STARTUP.obj (STARTUP)
+  .\Objects\main.obj (MAIN)
+  .\Objects\IC74573.obj (IC74573)
+  .\Objects\delay.obj (DELAY)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?COPY)
+
+
+LINK MAP OF MODULE:  .\Objects\IC74573 (STARTUP)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0003H     UNIT         _DATA_GROUP_
+            IDATA   000BH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     00F6H     UNIT         ?C?LIB_CODE
+            CODE    08F6H     0031H     UNIT         ?PR?MAIN?MAIN
+            CODE    0927H     0020H     UNIT         ?PR?_DELAY_MS?DELAY
+            CODE    0947H     0010H     UNIT         ?PR?_IC74573_TRANSFER_DATA?IC74573
+            CODE    0957H     0010H     UNIT         ?PR?_DELAY_US?DELAY
+            CODE    0967H     000CH     UNIT         ?C_C51STARTUP
+            CODE    0973H     0002H     UNIT         ?CO?MAIN
+            CODE    0975H     0001H     UNIT         ?PR?DELAY_MIN?DELAY
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\IC74573 (STARTUP)
+
+
+SEGMENT                                      DATA_GROUP 
+  +--> CALLED SEGMENT                      START    LENGTH
+----------------------------------------------------------
+?C_C51STARTUP                              -----    -----
+  +--> ?PR?MAIN?MAIN
+
+?PR?MAIN?MAIN                              0008H    0003H
+  +--> ?CO?MAIN
+  +--> ?PR?_IC74573_TRANSFER_DATA?IC74573
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\IC74573 (STARTUP)
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/14/2016  08:23:24  PAGE 2
+
+
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        STARTUP
+  D:00A0H         PUBLIC        IC74573_DATA
+  B:00B0H.0       PUBLIC        IC74573_LE1
+  B:00B0H.1       PUBLIC        IC74573_LE2
+  -------         ENDMOD        STARTUP
+
+  -------         MODULE        MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:08F6H         PUBLIC        main
+  C:0973H         SYMBOL        _?ix1000
+  -------         PROC          MAIN
+  -------         DO            
+  D:0008H         SYMBOL        data_arr
+  D:000AH         SYMBOL        i
+  -------         ENDDO         
+  C:08F6H         LINE#         5
+  C:08F6H         LINE#         6
+  C:0909H         LINE#         7
+  C:090CH         LINE#         9
+  C:090EH         LINE#         10
+  C:091CH         LINE#         12
+  C:0925H         LINE#         14
+  C:0925H         LINE#         16
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        MAIN
+
+  -------         MODULE        IC74573
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:0947H         PUBLIC        _IC74573_transfer_data
+  -------         PROC          _IC74573_TRANSFER_DATA
+  D:0007H         SYMBOL        c
+  D:0005H         SYMBOL        i
+  C:0947H         LINE#         3
+  C:0947H         LINE#         4
+  C:0949H         LINE#         6
+  C:0951H         LINE#         7
+  C:0951H         LINE#         8
+  C:0953H         LINE#         9
+  C:0954H         LINE#         11
+  C:0954H         LINE#         12
+  C:0956H         LINE#         13
+  C:0956H         LINE#         15
+  C:0956H         LINE#         16
+  C:0956H         LINE#         17
+  C:0956H         LINE#         18
+  -------         ENDPROC       _IC74573_TRANSFER_DATA
+  -------         ENDMOD        IC74573
+
+  -------         MODULE        DELAY
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:0975H         PUBLIC        delay_min
+  C:0927H         PUBLIC        _delay_ms
+  C:0957H         PUBLIC        _delay_us
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/14/2016  08:23:24  PAGE 3
+
+
+  -------         PROC          _DELAY_US
+  D:0006H         SYMBOL        usecond
+  C:0957H         LINE#         3
+  C:0957H         LINE#         4
+  C:0966H         LINE#         5
+  -------         ENDPROC       _DELAY_US
+  -------         PROC          _DELAY_MS
+  D:0006H         SYMBOL        msecond
+  -------         DO            
+  D:0004H         SYMBOL        i
+  D:0002H         SYMBOL        j
+  -------         ENDDO         
+  C:0927H         LINE#         7
+  C:0927H         LINE#         8
+  C:092AH         LINE#         10
+  C:0931H         LINE#         11
+  C:0946H         LINE#         12
+  -------         ENDPROC       _DELAY_MS
+  -------         PROC          DELAY_MIN
+  C:0975H         LINE#         15
+  C:0975H         LINE#         17
+  -------         ENDPROC       DELAY_MIN
+  -------         ENDMOD        DELAY
+
+  -------         MODULE        ?C?COPY
+  C:08D0H         PUBLIC        ?C?COPY
+  -------         ENDMOD        ?C?COPY
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY_US?DELAY
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY_MS?DELAY
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DELAY_MIN?DELAY
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0074H BYTE ( 5%) *
+******************************************************************************
+
+Program Size: data=12.0 xdata=0 code=377
+LINK/LOCATE RUN COMPLETE.  3 WARNING(S),  0 ERROR(S)

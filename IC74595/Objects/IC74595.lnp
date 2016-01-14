@@ -1,0 +1,6 @@
+".\Objects\STARTUP.obj",
+".\Objects\main.obj",
+".\Objects\delay.obj",
+".\Objects\IC74595.obj" 
+TO ".\Objects\IC74595" 
+PRINT(".\Listings\IC74595.m51")

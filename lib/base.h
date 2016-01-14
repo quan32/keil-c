@@ -1,8 +1,8 @@
 #ifndef base_h
 #define base_h
 
-#include "marco.h"
-#include "delay.h"
-#include "delay.c"
+#define false 0
+#define true  1
+typedef bit  boolean;
 
 #endif

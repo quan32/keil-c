@@ -30,5 +30,18 @@ DB0-DB7 	8 duong bus du lieu. Co 2 mode
 0xC0 		Di chuyen con tro ve dau dong 2														37us
 0x38 		Giao tiep 8 bit, hien thi 2 dong, kich thuoc font 5x7								37us
 0x28		Giao tiep 4 bit, hien thi 2 dong, kich thuoc font 5x7								37us
+
+
+### In ky tu o vi tri bat ky
+1xxxxxxx 	xxxxxxx: dia chi muon di chuyen con tro toi toi
+
+Cach danh dia chi cua DDRAM (Data Display RAM) cua LCD
+
+		col1	col2	col3	col4	...		col40
+row 1:	00		01		02		03 		...		27
+row 2:	40		41		42		43		...		67
+
+
+### Dich man hinh(chay chu)
 0x18		Dich toan bo noi dung dang hien thi sang trai 1 o									37us		
 0x1C 		Dich toan bo noi dung dang hien thi sang phai 1 o									37us

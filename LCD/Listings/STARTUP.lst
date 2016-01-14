@@ -1,4 +1,4 @@
-A51 MACRO ASSEMBLER  STARTUP                                                              01/13/2016 11:56:16 PAGE     1
+A51 MACRO ASSEMBLER  STARTUP                                                              01/14/2016 03:59:58 PAGE     1
 
 
 MACRO ASSEMBLER A51 V8.02c
@@ -8,17 +8,18 @@ ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE STARTUP.A51 SET(SMALL) DEBUG PR
 
 LOC  OBJ            LINE     SOURCE
 
-                       1     PUBLIC LCD_RS
-  0080                 2             LCD_RS          bit             080h    ; Port 0.0
-                       3                     
-                       4     PUBLIC LCD_EN
-  0081                 5             LCD_EN          bit             081h    ; Port 0.1
-                       6                     
-                       7     PUBLIC LCD_DATA
-  00A0                 8             LCD_DATA        data    0A0h    ; Port 2
-                       9                     
-                      10     END
-A51 MACRO ASSEMBLER  STARTUP                                                              01/13/2016 11:56:16 PAGE     2
+                       1     ; lcd
+                       2     PUBLIC LCD_RS
+  0080                 3             LCD_RS          bit             080h    ; Port 0.0
+                       4                     
+                       5     PUBLIC LCD_EN
+  0081                 6             LCD_EN          bit             081h    ; Port 0.1
+                       7                     
+                       8     PUBLIC LCD_DATA
+  00A0                 9             LCD_DATA        data    0A0h    ; Port 2
+                      10     
+                      11     END
+A51 MACRO ASSEMBLER  STARTUP                                                              01/14/2016 03:59:58 PAGE     2
 
 SYMBOL TABLE LISTING
 ------ ----- -------

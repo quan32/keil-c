@@ -1,3 +1,5 @@
-"main.obj" 
+"main.obj",
+"STARTUP.obj",
+".\lcd.obj" 
 TO "switch_bound" 
 RAMSIZE(256) 

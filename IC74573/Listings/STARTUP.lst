@@ -1,0 +1,38 @@
+A51 MACRO ASSEMBLER  STARTUP                                                              01/14/2016 07:59:23 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02c
+OBJECT MODULE PLACED IN .\Objects\STARTUP.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE STARTUP.A51 SET(SMALL) DEBUG PRINT(.\Listings\STARTUP.lst) OBJECT(.\Obj
+                      ects\STARTUP.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     ; IC74573
+                       2     PUBLIC IC74573_LE1
+  00B0                 3             IC74573_LE1     bit     0B0h    ; P3.0
+                       4     
+                       5     PUBLIC IC74573_LE2
+  00B1                 6             IC74573_LE2     bit     0B1h    ; P3.1
+                       7     
+                       8     PUBLIC IC74573_DATA
+  00A0                 9             IC74573_DATA    data    0A0h    ; port P2
+                      10     
+*** WARNING #A41 IN 10 (STARTUP.A51, LINE 10): MISSING 'END' STATEMENT
+A51 MACRO ASSEMBLER  STARTUP                                                              01/14/2016 07:59:23 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+IC74573_DATA . . .  D ADDR   00A0H   A   
+IC74573_LE1. . . .  B ADDR   00B0H.0 A   
+IC74573_LE2. . . .  B ADDR   00B0H.1 A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  1 WARNING(S), 0 ERROR(S)

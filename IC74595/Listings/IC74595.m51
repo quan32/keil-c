@@ -1,0 +1,164 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        01/14/2016  07:13:15  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\STARTUP.obj, .\Objects\main.obj, .\Objects\delay.obj, .\Objects\IC74595.obj TO .\O
+>> bjects\IC74595 PRINT (.\Listings\IC74595.m51)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\STARTUP.obj (STARTUP)
+  .\Objects\main.obj (MAIN)
+  .\Objects\delay.obj (DELAY)
+  .\Objects\IC74595.obj (IC74595)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?COPY)
+
+
+LINK MAP OF MODULE:  .\Objects\IC74595 (STARTUP)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0003H     UNIT         _DATA_GROUP_
+            IDATA   000BH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     00F6H     UNIT         ?C?LIB_CODE
+            CODE    08F6H     0033H     UNIT         ?PR?MAIN?MAIN
+            CODE    0929H     002DH     UNIT         ?PR?_IC74595_DATA_TRANSFER?IC74595
+            CODE    0956H     0020H     UNIT         ?PR?_DELAY_MS?DELAY
+            CODE    0976H     0010H     UNIT         ?PR?_DELAY_US?DELAY
+            CODE    0986H     000CH     UNIT         ?C_C51STARTUP
+            CODE    0992H     0002H     UNIT         ?CO?MAIN
+            CODE    0994H     0001H     UNIT         ?PR?DELAY_MIN?DELAY
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\IC74595 (STARTUP)
+
+
+SEGMENT                                      DATA_GROUP 
+  +--> CALLED SEGMENT                      START    LENGTH
+----------------------------------------------------------
+?C_C51STARTUP                              -----    -----
+  +--> ?PR?MAIN?MAIN
+
+?PR?MAIN?MAIN                              0008H    0003H
+  +--> ?CO?MAIN
+  +--> ?PR?_IC74595_DATA_TRANSFER?IC74595
+  +--> ?PR?_DELAY_MS?DELAY
+
+
+
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/14/2016  07:13:15  PAGE 2
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\IC74595 (STARTUP)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        STARTUP
+  B:00A0H.1       PUBLIC        IC74595_DS
+  B:00A0H.0       PUBLIC        IC74595_SHCP
+  B:00A0H.2       PUBLIC        IC74595_STCP
+  -------         ENDMOD        STARTUP
+
+  -------         MODULE        MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:08F6H         PUBLIC        main
+  C:0992H         SYMBOL        _?ix1000
+  -------         PROC          MAIN
+  -------         DO            
+  D:0008H         SYMBOL        i
+  D:0009H         SYMBOL        data_arr
+  -------         ENDDO         
+  C:08F6H         LINE#         5
+  C:08F6H         LINE#         6
+  C:08F9H         LINE#         7
+  C:090AH         LINE#         9
+  C:090AH         LINE#         10
+  C:090DH         LINE#         11
+  C:0917H         LINE#         12
+  C:091EH         LINE#         13
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        MAIN
+
+  -------         MODULE        DELAY
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:0994H         PUBLIC        delay_min
+  C:0956H         PUBLIC        _delay_ms
+  C:0976H         PUBLIC        _delay_us
+  -------         PROC          _DELAY_US
+  D:0006H         SYMBOL        usecond
+  C:0976H         LINE#         3
+  C:0976H         LINE#         4
+  C:0985H         LINE#         5
+  -------         ENDPROC       _DELAY_US
+  -------         PROC          _DELAY_MS
+  D:0006H         SYMBOL        msecond
+  -------         DO            
+  D:0004H         SYMBOL        i
+  D:0002H         SYMBOL        j
+  -------         ENDDO         
+  C:0956H         LINE#         7
+  C:0956H         LINE#         8
+  C:0959H         LINE#         10
+  C:0960H         LINE#         11
+  C:0975H         LINE#         12
+  -------         ENDPROC       _DELAY_MS
+  -------         PROC          DELAY_MIN
+  C:0994H         LINE#         15
+  C:0994H         LINE#         17
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/14/2016  07:13:15  PAGE 3
+
+
+  -------         ENDPROC       DELAY_MIN
+  -------         ENDMOD        DELAY
+
+  -------         MODULE        IC74595
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:0929H         PUBLIC        _IC74595_data_transfer
+  -------         PROC          _IC74595_DATA_TRANSFER
+  D:0005H         SYMBOL        x
+  -------         DO            
+  D:0003H         SYMBOL        i
+  -------         ENDDO         
+  C:0929H         LINE#         3
+  C:092BH         LINE#         4
+  C:092DH         LINE#         6
+  C:092DH         LINE#         7
+  C:0949H         LINE#         9
+  C:094BH         LINE#         10
+  C:094DH         LINE#         11
+  C:0951H         LINE#         13
+  C:0953H         LINE#         14
+  C:0955H         LINE#         15
+  -------         ENDPROC       _IC74595_DATA_TRANSFER
+  -------         ENDMOD        IC74595
+
+  -------         MODULE        ?C?COPY
+  C:08D0H         PUBLIC        ?C?COPY
+  -------         ENDMOD        ?C?COPY
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY_US?DELAY
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DELAY_MIN?DELAY
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0093H BYTE ( 7%) *
+******************************************************************************
+
+Program Size: data=12.0 xdata=0 code=408
+LINK/LOCATE RUN COMPLETE.  2 WARNING(S),  0 ERROR(S)

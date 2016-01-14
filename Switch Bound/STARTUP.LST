@@ -1,0 +1,37 @@
+A51 MACRO ASSEMBLER  STARTUP                                                              01/14/2016 04:18:42 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02c
+OBJECT MODULE PLACED IN STARTUP.OBJ
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE STARTUP.A51 SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     ; lcd
+                       2     PUBLIC LCD_RS
+  0080                 3             LCD_RS          bit             080h    ; Port 0.0
+                       4                     
+                       5     PUBLIC LCD_EN
+  0081                 6             LCD_EN          bit             081h    ; Port 0.1
+                       7                     
+                       8     PUBLIC LCD_DATA
+  00A0                 9             LCD_DATA        data    0A0h    ; Port 2
+                      10     
+                      11     END
+A51 MACRO ASSEMBLER  STARTUP                                                              01/14/2016 04:18:42 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+LCD_DATA . . . . .  D ADDR   00A0H   A   
+LCD_EN . . . . . .  B ADDR   0080H.1 A   
+LCD_RS . . . . . .  B ADDR   0080H.0 A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

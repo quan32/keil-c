@@ -100,7 +100,7 @@ static void keyboard_external_interrupt0_isr(void) interrupt 0 {
 	}
 	if (tmp != 0) {
 		pos = tmp;
-		do_job(pos);
+		keyboard_do_job(pos);
 	}
 	
 	keyboard_init_exec();
@@ -123,7 +123,7 @@ static void keyboard_external_interrupt1_isr(void) interrupt 3 {
 	}
 	if (tmp != 0) {
 		pos = tmp;
-		do_job(pos);
+		keyboard_do_job(pos);
 	}
 	
 	keyboard_init_exec();

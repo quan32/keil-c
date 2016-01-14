@@ -1,22 +1,44 @@
-C51 COMPILER V8.05a   MAIN                                                                 01/10/2016 21:25:43 PAGE 1   
+C51 COMPILER V9.54   MAIN                                                                  01/14/2016 05:49:36 PAGE 1   
 
 
-C51 COMPILER V8.05a, COMPILATION OF MODULE MAIN
+C51 COMPILER V9.54, COMPILATION OF MODULE MAIN
 OBJECT MODULE PLACED IN main.OBJ
-COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE main.c BROWSE DEBUG OBJECTEXTEND
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND TABS(2)
 
 line level    source
 
+   1          #include <reg51.h>
+   2          #include "../lib/base.h"
+   3          #include "../lib/lcd.h"
+   4          
+   5          sbit SW = P1^0;
+   6          
+   7          void main(void) {
+   8   1        unsigned char count = 0;
+   9   1        boolean checked = false;
+  10   1        
+  11   1        while (1) {
+  12   2          if (SW == 1) {
+  13   3            if (checked == false) {
+  14   4              checked = true;
+  15   4              ++count;
+  16   4              lcd_display_number(count);
+  17   4            }
+  18   3          } else {
+  19   3            checked = false;
+  20   3          }
+  21   2        }
+  22   1      }
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =   ----    ----
+   CODE SIZE        =     28    ----
    CONSTANT SIZE    =   ----    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----
-   DATA SIZE        =   ----    ----
+   DATA SIZE        =   ----       1
    IDATA SIZE       =   ----    ----
-   BIT SIZE         =   ----    ----
+   BIT SIZE         =   ----       1
 END OF MODULE INFORMATION.
 
 

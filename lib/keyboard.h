@@ -17,6 +17,6 @@ extern void keyboard_init(const unsigned char type);
 extern void keyboard_init_exec();
 extern void keyboard_scan_init();
 extern unsigned char keyboard_scan(const unsigned char row);
-extern void do_job(const unsigned char pos);
+extern void keyboard_do_job(const unsigned char pos);
 
 #endif

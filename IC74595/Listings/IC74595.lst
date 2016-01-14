@@ -1,0 +1,39 @@
+C51 COMPILER V9.54   IC74595                                                               01/14/2016 06:56:01 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE IC74595
+OBJECT MODULE PLACED IN .\Objects\IC74595.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE ..\lib\IC74595.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Lis
+                    -tings\IC74595.lst) TABS(2) OBJECT(.\Objects\IC74595.obj)
+
+line level    source
+
+   1          #include "IC74595.h"
+   2          
+   3          void IC74595_data_transfer(const unsigned char x) {
+   4   1        unsigned char i=0;
+   5   1        
+   6   1        for (i=0; i<8; ++i) {
+   7   2          IC74595_DS = x & (0x80 >> i);
+   8   2          
+   9   2          IC74595_SHCP = 0;
+  10   2          IC74595_SHCP = 1;
+  11   2        }
+  12   1        
+  13   1        IC74595_STCP = 0;
+  14   1        IC74595_STCP = 1;
+  15   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     45    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

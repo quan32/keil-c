@@ -1,0 +1,27 @@
+
+### Defination
+	Mo rong port bang cach chuyen du lieu noi tiep sang song song
+	
+	
+### Document
+	https://sites.google.com/site/thaibinh117959/chia-se-cong-nghe/cung-tim-hieu-ic-mo-rong-74hc595
+	
+	
+### Pins
+SH_CP 	shift register clock input (Xung de chuyen du bit tu microcontroller ra ic nhung chua cho ra output)
+DS 		serial data input	(Pin dua du lieu (bit) ra ic)
+ST_CP 	storage register clock input (dua du lieu (byte) ra output cua ic)
+MR 		master reset (active LOW)
+OE 		output enable input (active LOW)
+Q0-Q7,Q15 0-8
+VCC,GND gian luoc
+
+
+### Chu y
+	Cac cua byte duoc dua ra theo thu tu bit cao -> bit thap
+	
+	
+### Su dung nhieu IC74595
+	Du lieu ra IC tiep theo o pin Q7' cua IC truoc
+	Du lieu duoc truyen theo dong: IC1 -> IC2 -> ....
+
